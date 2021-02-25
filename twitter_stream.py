@@ -21,15 +21,16 @@ import string
 import pickle
 import itertools
 from textblob import TextBlob
+from secrets import secrets
 
 analyzer = SentimentIntensityAnalyzer()
 
 #consumer key, consumer secret, access token, access secret.
 # https://apps.twitter.com/ to setup
-ckey=""
-csecret=""
-atoken=""
-asecret="
+ckey=secrets.ckey
+csecret=secrets.csecret
+atoken=secrets.atoken
+asecret=secrets.asecret
 # isolation lever disables automatic transactions,
 # we are disabling thread check as we are creating connection here, but we'll be inserting from a separate thread (no need for serialization)
 conn = sqlite3.connect('twitter.db', isolation_level=None, check_same_thread=False)
